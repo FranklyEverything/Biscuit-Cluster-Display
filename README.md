@@ -14,6 +14,16 @@ The included configuration matches the tested build:
 
 ![Biscuit logo](assets/biscuit-logo-turntable.gif)
 
+## Bill of materials
+
+| Item | Specification | Source |
+|---|---|---|
+| LCD | 1.69-inch ST7789V2, 240 × 280, **3.3 V** | [Exact screen used](https://amzn.to/4zGLMt1) |
+| Controller | ESP32-S3 N16R8 development board | Choose a compatible 16 MB flash / 8 MB PSRAM board |
+| Battery divider | Two resistors sized for the selected pack | See the battery-divider section below |
+| Power converter | Regulated 5 V buck converter, when the battery exceeds 5 V | Size it for the ESP32 and attached hardware |
+| Optional filter | 100 nF ceramic capacitor | GPIO 5 to GND for additional ADC filtering |
+
 ## Important electrical safety
 
 This particular LCD is a **3.3 V device**. Never connect its VCC pin to 5 V.
