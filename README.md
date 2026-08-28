@@ -16,11 +16,15 @@ The included configuration matches the tested build:
 
 ## Important electrical safety
 
-Never connect a battery pack above 5 V directly to the ESP32-S3 or LCD.
+This particular LCD is a **3.3 V device**. Never connect its VCC pin to 5 V.
+Never connect a battery pack above 5 V directly to the ESP32-S3, and never
+connect a source above 3.3 V to the LCD.
 
 - Feed a higher-voltage battery into a suitable regulated **5 V buck
   converter**.
-- Feed the regulated 5 V output to the ESP32's **5V/VBUS** input and LCD VCC.
+- Feed the regulated 5 V output only to the ESP32's **5V/VBUS** input.
+- Power LCD VCC from the ESP32's regulated **3V3** pin. If using a separate
+  3.3 V regulator, connect its ground to the ESP32 ground.
 - Join the battery, converter, ESP32, and LCD grounds.
 - Battery voltage is measured separately through a resistor divider.
 - GPIO 5 must remain below 3.3 V; this project targets 2.8 V or less at the
@@ -34,7 +38,7 @@ Turn power off while wiring.
 
 | LCD pin | ESP32-S3 connection | Notes |
 |---|---:|---|
-| VCC | 5V / VBUS | Module power |
+| VCC | 3V3 | This LCD version is 3.3 V only—do not use 5 V |
 | GND | GND | Common ground |
 | DIN | GPIO 11 | SPI MOSI |
 | CLK | GPIO 12 | SPI clock |

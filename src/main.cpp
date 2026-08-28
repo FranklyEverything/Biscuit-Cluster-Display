@@ -147,8 +147,8 @@ void drawAnimationFrame() {
 void setup() {
   Serial.begin(115200);
 
-  // Keep the panel quiet and dark until both its 5 V module supply and the
-  // ESP32-S3 GPIO rails have settled. This module was intermittently missing
+  // Keep the panel quiet and dark until its 3.3 V supply and the ESP32-S3 GPIO
+  // rails have settled. This module was intermittently missing
   // initialization when both devices started at the same instant.
   pinMode(BACKLIGHT_PIN, OUTPUT);
   digitalWrite(BACKLIGHT_PIN, LOW);
